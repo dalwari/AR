@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Manag App</title>
+</head>
+<body>
+    <div align="center">
+        <h2>Welcome to Admin Login Page</h2>
+        <div th:if="${param.error}">
+            <h4 style="color: red">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</h4>
+        </div>
+       <form th:action="@{/admin/login}" method="post">
+        <table>
+            <tr>
+                <td>Email : </td>
+                <td><input name="email" type="email" required/></td>
+            </tr>
+            <tr>
+                <td>Password : </td>
+                <td><input name="password"type="password" required/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Login"/></td>
+            </tr>
+        </table>
+       </form>
+    </div>
+</body>
+</html>
